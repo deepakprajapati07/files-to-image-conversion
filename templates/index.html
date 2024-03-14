@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Converter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+
+    <nav class="custom-navbar">
+        <div class="inner-div">
+            <a class="navbar-brand" href="#">
+                <h1 class="">Convert Files To Images</h1>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card shadow-sm rounded">
+            <form id="uploadForm" enctype="multipart/form-data">
+                <!-- div 1 -->
+                <div class="row mb-3">
+                    <div class="col-10 m-auto pb-3 pt-3">
+                        <label for="fileInput" class="form-label">Choose File(s)</label>
+                        <input type="file" name="files" id="fileInput" class="form-control" multiple required/>
+                    </div>
+                </div>
+
+                <!-- div 2 -->
+                <div class="row px-4">
+                    <!-- sub div 1 -->
+                    <div class="col-5 m-auto">
+                        <div class="mb-3">
+                            <label for="mode" class="form-label">Image Mode</label>
+                            <select name="mode" id="mode" class="form-select" required>
+                                <option value="gray">Grayscale</option>
+                                <option value="color">Color</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="imageSize" class="form-label">Image Size</label>
+                            <input type="number" name="imageSize" id="imageSize" class="form-control" placeholder="Enter Image Size" value="64" required>
+                        </div>
+                    </div>
+
+                    <!-- sub div 2 -->
+                    <div class="col-5 m-auto">
+                        <div class="mb-3">
+                            <label for="imgFormat" class="form-label">Image Format</label>
+                            <select name="imgFormat" id="imgFormat" class="form-select" required>
+                                <option value="jpeg">JPEG</option>
+                                <option value="png">PNG</option>
+                                <option value="jpg">JPG</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="resampling_filter" class="form-label">Resampling Filter</label>
+                            <select name="resampling_filter" id="resampling_filter" class="form-select">
+                                <option value="BICUBIC">BiCubic (Default)</option>
+                                <option value="NEAREST">Nearest</option>
+                                <option value="BOX">Box</option>
+                                <option value="BILINEAR">BiLinear</option>
+                                <option value="HAMMING">Hamming</option>
+                                <option value="LANCZOS">Lanczos</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="d-grid gap-3 col-10 m-auto pt-3">
+                <button id="convertBtn" type="submit" class="btn btn-primary">Convert</button>
+
+                <button id="downloadBtn" class="btn btn-success" type="button">Download File</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/main.js"></script>
+</body>
+</html>
